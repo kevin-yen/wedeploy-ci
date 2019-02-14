@@ -1,6 +1,4 @@
 **/.DS_Store
-.idea/gradle.xml
-.idea/tasks.xml
-.idea/workspace.xml
-app/.gradle
-app/build
+.idea/
+.gradle/
+build/
