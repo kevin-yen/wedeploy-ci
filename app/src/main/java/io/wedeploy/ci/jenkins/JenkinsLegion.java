@@ -1,25 +1,15 @@
 package io.wedeploy.ci.jenkins;
 
 import com.wedeploy.android.WeDeploy;
-import com.wedeploy.android.WeDeploy.Builder;
-import com.wedeploy.android.exception.WeDeployException;
-import com.wedeploy.android.query.Query;
-import com.wedeploy.android.query.SortOrder;
-import com.wedeploy.android.query.filter.Filter;
 import com.wedeploy.android.transport.Response;
 
 import io.wedeploy.ci.util.EnvironmentUtil;
 
-import java.io.IOException;
-
 import java.sql.Timestamp;
-import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import org.json.JSONArray;

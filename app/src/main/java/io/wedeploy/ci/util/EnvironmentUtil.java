@@ -1,7 +1,5 @@
 package io.wedeploy.ci.util;
 
-import java.net.URL;
-
 import java.util.Map;
 
 public class EnvironmentUtil {

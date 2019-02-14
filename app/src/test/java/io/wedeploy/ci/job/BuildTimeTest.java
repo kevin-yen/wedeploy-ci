@@ -1,8 +1,5 @@
 package io.wedeploy.ci.job;
 
-import java.util.Calendar;
-import java.util.List;
-
 import org.junit.Assert;
 import org.junit.Test;
 
