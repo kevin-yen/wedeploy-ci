@@ -20,35 +20,37 @@
 		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 	</head>
 	<body>
-		<h1>Jenkins Cohorts</h1>
-		<p>Last updated ${jenkinsLegion.getLastUpdate()}</p>
+		<div class="container-fluid">
+			<h1>Jenkins Cohorts</h1>
+			<p>Last updated ${jenkinsLegion.getLastUpdate()}</p>
 
-		<c:forEach items="${jenkinsLegion.getCohorts()}" var="jenkinsCohort">
-			<h2>${jenkinsCohort.getName()}</h2>
-			<h4>Cohort Offline Slave Count: ${jenkinsCohort.getOfflineSlaveCount()}</h4>
+			<c:forEach items="${jenkinsLegion.getCohorts()}" var="jenkinsCohort">
+				<h2>${jenkinsCohort.getName()}</h2>
+				<h4>Cohort Offline Slave Count: ${jenkinsCohort.getOfflineSlaveCount()}</h4>
 
-			<c:forEach items="${jenkinsCohort.getMasters()}" var="jenkinsMaster">
-				<c:if test="${jenkinsMaster.getOfflineSlaveCount() > 0}">
-					<h4><a href="${jenkinsMaster.getRemoteURL()}">${jenkinsMaster.getName()}</a></h4>
+				<c:forEach items="${jenkinsCohort.getMasters()}" var="jenkinsMaster">
+					<c:if test="${jenkinsMaster.getOfflineSlaveCount() > 0}">
+						<h4><a href="${jenkinsMaster.getRemoteURL()}">${jenkinsMaster.getName()}</a></h4>
 
-					<details>
-						<summary>Master Offline Slave Count: ${jenkinsMaster.getOfflineSlaveCount()}</summary>
-						<ul>
-							<c:forEach items="${jenkinsMaster.getSlaves()}" var="jenkinsSlave">
-								<c:if test="${jenkinsSlave.isOffline()}">
-									<li>
-										<a href="${jenkinsSlave.getRemoteURL()}">${jenkinsSlave.getName()}</a>
+						<details>
+							<summary>Master Offline Slave Count: ${jenkinsMaster.getOfflineSlaveCount()}</summary>
+							<ul>
+								<c:forEach items="${jenkinsMaster.getSlaves()}" var="jenkinsSlave">
+									<c:if test="${jenkinsSlave.isOffline()}">
+										<li>
+											<a href="${jenkinsSlave.getRemoteURL()}">${jenkinsSlave.getName()}</a>
 
-										<br />
+											<br />
 
-										<span><pre>${jenkinsSlave.getOfflineCause()}</pre></span>
-									</li>
-								</c:if>
-							</c:forEach>
-						</ul>
-					</details>
-				</c:if>
+											<span><pre>${jenkinsSlave.getOfflineCause()}</pre></span>
+										</li>
+									</c:if>
+								</c:forEach>
+							</ul>
+						</details>
+					</c:if>
+				</c:forEach>
 			</c:forEach>
-		</c:forEach>
+		</div>
 	</body>
 </html>
