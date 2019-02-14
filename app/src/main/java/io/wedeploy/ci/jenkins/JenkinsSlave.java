@@ -10,8 +10,7 @@ public class JenkinsSlave {
 
 	public JenkinsSlave(
 			JenkinsMaster jenkinsMaster, String name, boolean offline,
-			String offlineCause)
-		throws Exception {
+			String offlineCause) {
 
 		_id = String.valueOf(CollectionUtil.getUniqueTimestamp());
 		_jenkinsMaster = jenkinsMaster;
@@ -21,9 +20,7 @@ public class JenkinsSlave {
 		_remoteURL = "https://" + _jenkinsMaster.getName() + ".liferay.com/computer/" + name + "/";
 	}
 
-	public JenkinsSlave(JenkinsMaster jenkinsMaster, JSONObject jsonObject)
-		throws Exception {
-
+	public JenkinsSlave(JenkinsMaster jenkinsMaster, JSONObject jsonObject) {
 		_id = jsonObject.getString("id");
 		_jenkinsMaster = jenkinsMaster;
 		_name = jsonObject.getString("name");

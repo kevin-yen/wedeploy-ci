@@ -10,9 +10,7 @@ import org.json.JSONObject;
 
 public class JenkinsCohort {
 
-	public JenkinsCohort(JenkinsLegion jenkinsLegion, String name)
-		throws Exception {
-
+	public JenkinsCohort(JenkinsLegion jenkinsLegion, String name) {
 		_id = String.valueOf(CollectionUtil.getUniqueTimestamp());
 		_jenkinsLegion = jenkinsLegion;
 		_name = name;
@@ -38,9 +36,7 @@ public class JenkinsCohort {
 		JenkinsMaster.writeJenkinsMastersToDatabase();
 	}
 
-	public JenkinsCohort(JenkinsLegion jenkinsLegion, JSONObject jsonObject)
-		throws Exception {
-
+	public JenkinsCohort(JenkinsLegion jenkinsLegion, JSONObject jsonObject) {
 		_id = jsonObject.getString("id");
 		_jenkinsLegion = jenkinsLegion;
 		_name = jsonObject.getString("name");

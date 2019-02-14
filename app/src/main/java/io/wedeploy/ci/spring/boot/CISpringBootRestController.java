@@ -1,5 +1,6 @@
 package io.wedeploy.ci.spring.boot;
 
+import com.wedeploy.android.exception.WeDeployException;
 import io.wedeploy.ci.jenkins.JenkinsCohort;
 import io.wedeploy.ci.jenkins.JenkinsLegion;
 import io.wedeploy.ci.jenkins.JenkinsMaster;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CISpringBootRestController {
 
 	@GetMapping("/counts")
-	public String counts() throws Exception {
+	public String counts() throws WeDeployException {
 		JSONObject jsonObject = new JSONObject();
 
 		JenkinsLegion jenkinsLegion = JenkinsLegion.getJenkinsLegion();

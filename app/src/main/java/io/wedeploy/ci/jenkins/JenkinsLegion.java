@@ -1,6 +1,7 @@
 package io.wedeploy.ci.jenkins;
 
 import com.wedeploy.android.WeDeploy;
+import com.wedeploy.android.exception.WeDeployException;
 import com.wedeploy.android.transport.Response;
 
 import io.wedeploy.ci.util.EnvironmentUtil;
@@ -17,7 +18,7 @@ import org.json.JSONObject;
 
 public class JenkinsLegion {
 
-	public JenkinsLegion() throws Exception {
+	public JenkinsLegion() throws WeDeployException {
 		Response jenkinsLegionResponse = CollectionUtil.getWeDeploy()
 			.data("https://data-ci.lfr.io")
 			.get("legion")
@@ -139,7 +140,7 @@ public class JenkinsLegion {
 		_jenkinsLegionsToBeWritten.add(jenkinsLegion);
 	}
 
-	public static JenkinsLegion getJenkinsLegion() throws Exception {
+	public static JenkinsLegion getJenkinsLegion() throws WeDeployException {
 		if (_jenkinsLegions.isEmpty()) {
 			return new JenkinsLegion();
 		}

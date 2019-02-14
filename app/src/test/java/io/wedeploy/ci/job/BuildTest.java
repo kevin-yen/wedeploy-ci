@@ -6,7 +6,7 @@ import org.junit.Test;
 public class BuildTest {
 
 	@Test
-	public void testBuild() throws Exception {
+	public void testBuild() {
 		Job job = new BaseJob("http://test-1-1/job/test-portal-acceptance-upstream(master)");
 
 		for (int i = 1; i < 10; i++) {

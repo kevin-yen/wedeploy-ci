@@ -83,8 +83,7 @@ public class CollectionUtil {
 				.get("slave")
 				.execute();
 			_slaveDatabaseJSONArray = new JSONArray(slaveResponse.getBody());
-		}
-		catch (Exception e) {
+		} catch (WeDeployException e) {
 			throw new RuntimeException(e);
 		}
 	}

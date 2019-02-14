@@ -50,7 +50,7 @@ public class JobTest {
 	}
 
 	@Test
-	public void testJob() throws Exception {
+	public void testJob() {
 		String[] jobURLs = new String[] {
 			"http://test-1-1/job/test-portal-acceptance-upstream(master)",
 			"http://test-1-1/job/test-portal-acceptance-upstream(master)/",

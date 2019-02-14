@@ -1,32 +1,31 @@
 package io.wedeploy.ci.jenkins;
 
+import com.wedeploy.android.exception.WeDeployException;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
-import org.quartz.JobExecutionException;
 import org.quartz.CronScheduleBuilder;
 import org.quartz.JobBuilder;
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
+import org.quartz.SchedulerException;
 import org.quartz.Trigger;
 import org.quartz.TriggerBuilder;
 import org.quartz.impl.StdSchedulerFactory;
 
 public class JenkinsUpdater implements Job {
 
-	public void execute(JobExecutionContext context)
-		throws JobExecutionException {
-
+	public void execute(JobExecutionContext context) {
 		try {
 			JenkinsLegion jenkinsLegion = JenkinsLegion.getJenkinsLegion();
 
 			jenkinsLegion.update();
 		}
-		catch (Exception e) {
+		catch (WeDeployException e) {
 			e.printStackTrace();
 		}
 	}
 
-	public static void start() throws Exception {
+	public static void start() throws SchedulerException {
 		if (_scheduler == null || _scheduler.isShutdown()) {
 			JobDetail jobDetail = JobBuilder.newJob(JenkinsUpdater.class)
 				.withIdentity("jenkinsUpdater", "group")
@@ -45,7 +44,7 @@ public class JenkinsUpdater implements Job {
 		}
 	}
 
-	public static void stop() throws Exception {
+	public static void stop() throws SchedulerException {
 		_scheduler.shutdown();
 	}
 
